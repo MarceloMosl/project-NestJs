@@ -4,6 +4,9 @@ import { CreateUserDTO } from './dto/create-user';
 
 @Injectable()
 export class UserRepo {
+  async findUserById(id: number) {
+    return await this.prisma.user.findFirst({ where: { id } });
+  }
   constructor(private readonly prisma: PrismaService) {}
 
   async create(data: CreateUserDTO) {
