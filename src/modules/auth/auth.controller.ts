@@ -23,7 +23,7 @@ export class AuthController {
     return this.authService.signin(body);
   }
 
-  @Post('signup')
+  @Post('user')
   async signup(@Body() body: AuthUserDto) {
     return this.authService.signup(body);
   }
