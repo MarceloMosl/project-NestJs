@@ -23,10 +23,12 @@ model Publications {
   id            Int      @id @default(autoincrement())
   image         String
   title         String   @unique
-  dateToPublish DateTime @db.Date
+  dateToPublish String
   published     Boolean? @default(false)
   socialMedia   String
   userId        Int
+  createdAt     String   @default(dbgenerated("now()"))
+  text          String
   users         User     @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 
   @@map("publications")
